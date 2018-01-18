@@ -1,7 +1,12 @@
 /**
- * Check primelity of the number
- * @param  {number} number
- * @returns boolean
+ * Returns true or false, indicating whether the given number is prime
+ * @example
+ * isPrime(0) // false
+ * isPrime(1) // false
+ * isPrime(17) // true
+ * isPrime(10000000000000) // false
+ * @param number
+ * @return Boolean indicating whether the given number is prime
  */
 export default function isPrime(number: number): boolean {
 	if (number < 2) {
