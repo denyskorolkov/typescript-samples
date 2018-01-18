@@ -1,0 +1,12 @@
+{
+
+	"browser": {
+        "loader": {
+            "script": "dojo2"
+        }
+	},
+	"environments": [
+        { "browserName": "chrome" }
+    ],
+    "suites": [ "_build/tests/unit/all.js" ]
+}
