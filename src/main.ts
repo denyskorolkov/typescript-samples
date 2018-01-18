@@ -1,3 +1,1 @@
-import isPrime from './isPrime';
-
-export default { isPrime };
+import './isPrime';
