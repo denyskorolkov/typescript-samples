@@ -1,1 +1,1 @@
-import './isPrime';
+import './basic';
