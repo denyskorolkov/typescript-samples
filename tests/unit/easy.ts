@@ -3,6 +3,7 @@ import { factorialArray, factorialRecursive } from '../../src/factorial';
 import { fibArray, fibRecursive } from '../../src/fib';
 import { isSorted } from '../../src/isSorted';
 import { filter } from '../../src/filter';
+import { reduce } from '../../src/reduce';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -79,5 +80,10 @@ registerSuite('Easy', {
 
 		assert.deepEqual(filter([12, 5, 8, 130, 44], isBigEnough), [12, 130, 44]);
 		assert.deepEqual(filter([1, 2, 3, 4], (n: any) => n < 3), [1, 2]);
+	},
+
+	reduce() {
+		assert.equal(reduce([0, 1, 2, 3], (a: any, b: any): any => a + b, 0), 6);
+		assert.equal(reduce([1, 2, 3, 4], (a: any, b: any): any => a + b, 0), 10);
 	}
 });
