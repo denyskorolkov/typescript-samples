@@ -15,9 +15,9 @@ export default function isPrime(number: number): boolean {
 		return true;
 	}
 
-	let length = Math.ceil(Math.sqrt(number));
+	let length: number = Math.ceil(Math.sqrt(number));
 
-	for (let i = 2; i <= length; i++) {
+	for (let i: number = 2; i <= length; i++) {
 		if (number % i === 0) {
 			return false;
 		}

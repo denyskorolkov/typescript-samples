@@ -6,7 +6,7 @@
  * fib(10) // 55
  * fib(20) // 6765
  * @param number
- * @returns number the nth Fibonacci number
+ * @return number the nth Fibonacci number
  */
 export function fibArray(number: number): number {
 	if (number === 0) {
@@ -29,7 +29,7 @@ export function fibArray(number: number): number {
  * fib(10) // 55
  * fib(20) // 6765
  * @param number
- * @returns number the nth Fibonacci number
+ * @return number the nth Fibonacci number
  */
 export function fibRecursive(number: number): number {
 	switch (number) {
