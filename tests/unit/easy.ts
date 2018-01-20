@@ -2,6 +2,7 @@ import isPrime from '../../src/isPrime';
 import { factorialArray, factorialRecursive } from '../../src/factorial';
 import { fibArray, fibRecursive } from '../../src/fib';
 import { isSorted } from '../../src/isSorted';
+import { filter } from '../../src/filter';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -69,5 +70,14 @@ registerSuite('Easy', {
 		assert.equal(isSorted([]), true);
 		assert.equal(isSorted([-Infinity, -5, 0, 3, 9]), true);
 		assert.equal(isSorted([3, 9, -3, 10]), false);
+	},
+
+	filter() {
+		function isBigEnough(value: any) {
+			return value >= 10;
+		}
+
+		assert.deepEqual(filter([12, 5, 8, 130, 44], isBigEnough), [12, 130, 44]);
+		assert.deepEqual(filter([1, 2, 3, 4], (n: any) => n < 3), [1, 2]);
 	}
 });
