@@ -7,7 +7,7 @@
  * @param number Any positive number
  * @returns Factorial of the given number
  */
-export default function factorial(number: number): number {
+export function factorialArray(number: number): number {
 	if (number === 0 || number ===1) {
 		return 1;
 	}
@@ -18,4 +18,21 @@ export default function factorial(number: number): number {
 	}
 
 	return total;
+}
+
+/**
+ * Returns a number that is the factorial of the given number
+ * @example
+ * factorial(0) // 1
+ * factorial(1) // 1
+ * factorial(6) // 720
+ * @param number Any positive number
+ * @returns Factorial of the given number
+ */
+export function factorialRecursive(number: number): number {
+	switch (number) {
+		case 0:
+		case 1: return 1;
+		default: return factorialRecursive(number - 1) * number;
+	}
 }
