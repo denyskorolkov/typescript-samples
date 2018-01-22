@@ -6,6 +6,7 @@ import { filter } from '../../src/filter';
 import { reduce } from '../../src/reduce';
 import { reverse } from '../../src/reverse';
 import { indexOf } from '../../src/indexOf';
+import { isPalindrome } from '../../src/isPalindrome';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -99,5 +100,12 @@ registerSuite('Easy', {
 		assert.equal(indexOf([1, 2, 3], 1), 0);
 		assert.equal(indexOf([1, 2, 3], 4), -1);
 		assert.equal(indexOf(['a', 't', 'test'], 'test'), 2);
+	},
+
+	isPalindrome() {
+		assert.equal(isPalindrome(''), true);
+		assert.equal(isPalindrome('abcdcba'), true);
+		assert.equal(isPalindrome('abcd'), false);
+		assert.equal(isPalindrome('A man a plan a canal Panama'), true);
 	}
 });
