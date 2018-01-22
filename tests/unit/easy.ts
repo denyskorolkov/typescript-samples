@@ -4,6 +4,8 @@ import { fibArray, fibRecursive } from '../../src/fib';
 import { isSorted } from '../../src/isSorted';
 import { filter } from '../../src/filter';
 import { reduce } from '../../src/reduce';
+import { reverse } from '../../src/reverse';
+import { indexOf } from '../../src/indexOf';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -85,5 +87,17 @@ registerSuite('Easy', {
 	reduce() {
 		assert.equal(reduce([0, 1, 2, 3], (a: any, b: any): any => a + b, 0), 6);
 		assert.equal(reduce([1, 2, 3, 4], (a: any, b: any): any => a + b, 0), 10);
+	},
+
+	reverse() {
+		assert.equal(reverse(''), '');
+		assert.equal(reverse('test'), 'tset');
+		assert.equal(reverse('abcdef'), 'fedcba');
+	},
+
+	indexOf() {
+		assert.equal(indexOf([1, 2, 3], 1), 0);
+		assert.equal(indexOf([1, 2, 3], 4), -1);
+		assert.equal(indexOf(['a', 't', 'test'], 'test'), 2);
 	}
 });
