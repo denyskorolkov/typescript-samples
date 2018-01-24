@@ -7,6 +7,7 @@ import { reduce } from '../../src/reduce';
 import { reverse } from '../../src/reverse';
 import { indexOf } from '../../src/indexOf';
 import { isPalindrome } from '../../src/isPalindrome';
+import { missing } from '../../src/missing';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -107,5 +108,13 @@ registerSuite('Easy', {
 		assert.equal(isPalindrome('abcdcba'), true);
 		assert.equal(isPalindrome('abcd'), false);
 		assert.equal(isPalindrome('A man a plan a canal Panama'), true);
+	},
+
+	missing() {
+		assert.isUndefined(missing([]));
+		assert.equal(missing([1, 4, 3]), 2);
+		assert.equal(missing([2, 3, 4]), 1);
+		assert.equal(missing([5, 1, 4, 2]), 3);
+		assert.isUndefined(missing([1, 2, 3, 4]));
 	}
 });
