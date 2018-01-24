@@ -8,6 +8,7 @@ import { reverse } from '../../src/reverse';
 import { indexOf } from '../../src/indexOf';
 import { isPalindrome } from '../../src/isPalindrome';
 import { missing } from '../../src/missing';
+import { isBalanced } from '../../src/isBalanced';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -116,5 +117,14 @@ registerSuite('Easy', {
 		assert.equal(missing([2, 3, 4]), 1);
 		assert.equal(missing([5, 1, 4, 2]), 3);
 		assert.isUndefined(missing([1, 2, 3, 4]));
+	},
+
+	isBalanced() {
+		assert.equal(isBalanced('}{'), false);
+		assert.equal(isBalanced('{{}'), false);
+		assert.equal(isBalanced('{}{}'), true);
+		assert.equal(isBalanced('foo { bar { baz } boo }'), true);
+		assert.equal(isBalanced('foo { bar { baz }'), false);
+		assert.equal(isBalanced('foo { bar } }'), false);
 	}
 });
