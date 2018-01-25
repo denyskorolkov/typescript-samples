@@ -1,1 +1,2 @@
-import './easy';
+// import './easy';
+import './intermediate';
