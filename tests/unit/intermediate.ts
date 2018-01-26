@@ -1,5 +1,6 @@
 import { fibMemoization } from '../../src/fib';
 import { isBalancedAdvanced } from '../../src/isBalanced';
+import { uniq } from '../../src/uniq';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -20,5 +21,10 @@ registerSuite('Intermediate', {
 		assert.equal(isBalancedAdvanced('(foo { bar (baz) [boo] })'), true);
 		assert.equal(isBalancedAdvanced('foo { bar { baz }'), false);
 		assert.equal(isBalancedAdvanced('foo { (bar [baz] } )'), false);
+	},
+
+	uniq() {
+		assert.deepEqual(uniq([]), []);
+		assert.deepEqual(uniq([1, 4, 2, 2, 3, 4, 8]), [1, 4, 2, 3, 8]);
 	}
 });
