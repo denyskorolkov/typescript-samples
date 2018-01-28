@@ -1,6 +1,7 @@
 import { fibMemoization } from '../../src/fib';
 import { isBalancedAdvanced } from '../../src/isBalanced';
 import { uniq } from '../../src/uniq';
+import { intersection } from '../../src/intersection';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -26,5 +27,10 @@ registerSuite('Intermediate', {
 	uniq() {
 		assert.deepEqual(uniq([]), []);
 		assert.deepEqual(uniq([1, 4, 2, 2, 3, 4, 8]), [1, 4, 2, 3, 8]);
+	},
+
+	intersection() {
+		assert.deepEqual(intersection([1, 5, 4, 2], [8, 91, 4, 1, 3]), [4, 1]);
+		assert.deepEqual(intersection([1, 5, 4, 2], [7, 12]), []);
 	}
 });
