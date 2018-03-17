@@ -2,6 +2,7 @@ import { fibMemoization } from '../../src/fib';
 import { isBalancedAdvanced } from '../../src/isBalanced';
 import { uniq } from '../../src/uniq';
 import { intersection } from '../../src/intersection';
+import { getShortestUniqueSubstring } from '../../src/getShortestUniqueSubstring';
 
 const { registerSuite } = intern.getInterface('object');
 const { assert } = intern.getPlugin('chai');
@@ -32,5 +33,15 @@ registerSuite('Intermediate', {
 	intersection() {
 		assert.deepEqual(intersection([1, 5, 4, 2], [8, 91, 4, 1, 3]), [4, 1]);
 		assert.deepEqual(intersection([1, 5, 4, 2], [7, 12]), []);
+	},
+
+	getShortestUniqueSubstring() {
+		assert.equal(getShortestUniqueSubstring(['A'], ''), '');
+		assert.equal(getShortestUniqueSubstring(['A'], 'B'), '');
+		assert.equal(getShortestUniqueSubstring(['A'], 'A'), 'A');
+		// assert.equal(getShortestUniqueSubstring(["A","B","C"], "ADOBECODEBANCDDD"), "BANC");
+		// assert.equal(getShortestUniqueSubstring(["A","B","C","E","K","I"], "KADOBECODEBANCDDDEI"), "KADOBECODEBANCDDDEI");
+		assert.equal(getShortestUniqueSubstring(['x', 'y', 'z'], 'xyyzyzyx'), 'zyx');
+		assert.equal(getShortestUniqueSubstring(['x', 'y', 'z', 'r'], 'xyyzyzyx'), '');
 	}
 });
